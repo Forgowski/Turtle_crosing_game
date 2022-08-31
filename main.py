@@ -13,12 +13,17 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-game_is_on = True
+is_game_on = True
 player = Player()
 screen.listen()
-while game_is_on:
+scoreboard=Scoreboard()
+
+while is_game_on:
     time.sleep(0.1)
     check_move()
+    if player.is_finish():
+        scoreboard.level += 1
+        scoreboard.update_level()
     screen.update()
 
 screen.exitonclick()

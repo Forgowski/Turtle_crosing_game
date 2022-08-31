@@ -16,3 +16,10 @@ class Player(Turtle):
 
     def go_up(self):
         self.forward(MOVE_DISTANCE)
+
+    def is_finish(self):
+        if self.ycor() == FINISH_LINE_Y:
+            self.goto(STARTING_POSITION)
+            return True
+        else:
+            return False
