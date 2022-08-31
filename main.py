@@ -31,7 +31,9 @@ while is_game_on:
     if frames_counter % 3 == 0:
         car_manager.create_car()
 
-    car_manager.move_cars()
+    if car_manager.move_cars(player):
+        is_game_on = False
+        scoreboard.end_of_game()
     screen.update()
     frames_counter += 1
 
